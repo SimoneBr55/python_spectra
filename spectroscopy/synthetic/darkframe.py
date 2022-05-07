@@ -7,7 +7,7 @@ import numpy as np
 from photutils.aperture import EllipticalAperture
 from spectroscopy.convenience_functions import show_image
 """Boiler Plate Code"""
-plt.style.use('files/guide.mplstyle')  # custom style from the guide (fonts and figures)
+plt.style.use('~/GitHub/python_spectra/files/guide.mplstyle')  # custom style from the guide (fonts and figures)
 # Random Generator
 seed = os.getenv('GUIDE_RANDOM_SEED', None)
 if seed is not None:
