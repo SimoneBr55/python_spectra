@@ -2,16 +2,21 @@ from astropy import visualization as aviz
 from astropy.nddata.blocks import block_reduce
 from astropy.nddata.utils import Cutout2D
 from matplotlib import pyplot as plt
-
-
+""" Notes and edits
+# - adding plt.show() when there is an image to output. Either in these functions or in the main.
+#   Using Jupiter notebooks this can be eluded, apparently.
+#
+# - addded title to show_image in order to use plt.title
+#
+"""
 def show_image(image,
                percl=99, percu=None, is_mask=False,
                figsize=(10, 10),
                cmap='viridis', log=False, clip=True,
                show_colorbar=True, show_ticks=True,
-               fig=None, ax=None, input_ratio=None):
+               fig=None, ax=None, input_ratio=None, title=""):
     """
-    Show an image in matplotlib with some basic astronomically-appropriat stretching.
+    Show an image in matplotlib with some basic astronomically-appropriate stretching.
 
     Parameters
     ----------
@@ -23,6 +28,8 @@ def show_image(image,
         The percentile for the upper edge of the stretch (or None to use ``percl`` for both)
     figsize : 2-tuple
         The size of the matplotlib figure in inches
+    title : String
+        The title of the frame
     """
     if percu is None:
         percu = percl
@@ -103,6 +110,8 @@ def show_image(image,
 
     if not show_ticks:
         ax.tick_params(labelbottom=False, labelleft=False, labelright=False, labeltop=False)
+    plt.title(title)
+    plt.show()
 
 
 def image_snippet(image, center, width=50, axis=None, fig=None,
